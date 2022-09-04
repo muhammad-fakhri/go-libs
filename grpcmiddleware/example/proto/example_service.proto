@@ -1,0 +1,26 @@
+
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package example;
+option go_package = "example";
+
+import "example_base.proto";
+
+// The reward credit service definition.
+service ExampleService {
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc UserInfo (UserInfoRequest) returns (UserInfoResponse) {}
+}
+
+message UserInfoRequest {
+    CommonRequest base = 1;
+    int64 user_id = 2;
+    string country = 3;
+}
+
+message UserInfoResponse {
+    CommonResponse base = 1;
+    int32 status = 2;
+}

@@ -1,0 +1,1 @@
+go test -bench=Bench | awk '{if ($1 ~ /^Bench/ ) print $1; else if ($0 ~ /ns/) print $0;}' | awk 'NR%2{printf "%s ",$0;next;}1'

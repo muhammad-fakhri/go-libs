@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package example;
+option go_package = "example";
+
+message CommonRequest {
+  string trace_id = 1;
+  string app_id = 2;
+  int64 timeout = 3; 
+}
+
+message CommonResponse {
+  int32 code = 1;
+  string msg = 2;
+}
