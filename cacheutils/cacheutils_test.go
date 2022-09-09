@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
+	"github.com/muhammad-fakhri/go-libs/cache/mock_cache"
 	"github.com/muhammad-fakhri/go-libs/cacheutils"
-	"github.com/muhammad-fakhri/go-libscache/mock_cache"
 
 	"github.com/golang/mock/gomock"
 	"github.com/hashicorp/go-multierror"
