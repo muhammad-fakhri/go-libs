@@ -13,7 +13,7 @@ type gomailHandler struct {
 }
 
 func newGomail(emailConfig *Config) (*gomailHandler, error) {
-	dialer := gomail.NewDialer(emailConfig.Host, emailConfig.Port, emailConfig.Email, emailConfig.Password)
+	dialer := gomail.NewDialer(emailConfig.Host, emailConfig.Port, emailConfig.Username, emailConfig.Password)
 	s, err := dialer.Dial()
 	if nil != err {
 		return nil, err
@@ -27,7 +27,7 @@ func newGomail(emailConfig *Config) (*gomailHandler, error) {
 
 func (h *gomailHandler) Send(sendEmailTo *MailDetail) error {
 	m := gomail.NewMessage()
-	m.SetHeader("From", h.config.Email)
+	m.SetHeader("From", h.config.SenderEmail)
 	m.SetHeader("To", sendEmailTo.SendTo...)
 	if len(sendEmailTo.SendToCc) > 0 {
 		m.SetHeader("Cc", sendEmailTo.SendToCc...)

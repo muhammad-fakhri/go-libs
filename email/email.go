@@ -30,10 +30,11 @@ type AttachmentDetail struct {
 }
 
 type Config struct {
-	Host     string `valid:"Required;Host" json:"host"`
-	Port     int    `valid:"Required;Port" json:"port"`
-	Email    string `valid:"Required;Email" json:"email"`
-	Password string `valid:"Required" json:"password"`
+	Host        string `valid:"Required;Host" json:"host"`
+	Port        int    `valid:"Required;Port" json:"port"`
+	SenderEmail string `valid:"Required;SenderEmail" json:"sender_email"`
+	Username    string `valid:"Required;Username" json:"username"`
+	Password    string `valid:"Required" json:"password"`
 }
 
 // New email return email handler struct
