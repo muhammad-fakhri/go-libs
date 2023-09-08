@@ -2,8 +2,9 @@ package email
 
 import (
 	"fmt"
-	"gopkg.in/gomail.v2"
 	"io"
+
+	"gopkg.in/gomail.v2"
 )
 
 type gomailHandler struct {
@@ -12,7 +13,7 @@ type gomailHandler struct {
 }
 
 func newGomail(emailConfig *Config) (*gomailHandler, error) {
-	dialer := gomail.NewPlainDialer("smtp.gmail.com", 587, emailConfig.Email, emailConfig.Password)
+	dialer := gomail.NewDialer(emailConfig.Host, emailConfig.Port, emailConfig.Email, emailConfig.Password)
 	s, err := dialer.Dial()
 	if nil != err {
 		return nil, err
